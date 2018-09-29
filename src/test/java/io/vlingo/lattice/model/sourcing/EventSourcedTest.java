@@ -17,18 +17,18 @@ public class EventSourcedTest {
   @Test
   public void testThatCtorEmits() {
     final TestEventSourcedEntity es = new TestEventSourcedEntity();
-    assertTrue(es.tested1);
+    assertTrue(es.getTested1());
     assertEquals(1, es.applied().size());
     assertEquals(Test1Happened.class, es.applied().get(0).getClass());
-    assertFalse(es.tested2);
+    assertFalse(es.getTested2());
     assertEquals(1, es.applied().size());
   }
 
   @Test
   public void testThatCommandEmits() {
     final TestEventSourcedEntity es = new TestEventSourcedEntity();
-    assertTrue(es.tested1);
-    assertFalse(es.tested2);
+    assertTrue(es.getTested1());
+    assertFalse(es.getTested2());
     assertEquals(1, es.applied().size());
     assertEquals(Test1Happened.class, es.applied().get(0).getClass());
     es.doTest2();
