@@ -17,18 +17,18 @@ public class CommandSourcedTest {
   @Test
   public void testThatCtorEmits() {
     final TestCommandSourcedEntity cs = new TestCommandSourcedEntity();
-    assertTrue(cs.tested1);
+    assertTrue(cs.getTested1());
     assertEquals(1, cs.applied().size());
     assertEquals(DoCommand1.class, cs.applied().get(0).getClass());
-    assertFalse(cs.tested2);
+    assertFalse(cs.getTested2());
     assertEquals(1, cs.applied().size());
   }
 
   @Test
   public void testThatEventEmits() {
     final TestCommandSourcedEntity cs = new TestCommandSourcedEntity();
-    assertTrue(cs.tested1);
-    assertFalse(cs.tested2);
+    assertTrue(cs.getTested1());
+    assertFalse(cs.getTested2());
     assertEquals(1, cs.applied().size());
     assertEquals(DoCommand1.class, cs.applied().get(0).getClass());
     cs.doTest2();
